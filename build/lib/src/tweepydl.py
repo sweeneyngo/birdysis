@@ -5,21 +5,24 @@ import json
 from tweepy import OAuthHandler, API, Cursor, TweepError
 from functions import get_entities, item_retrieve
 
-def download():
+def download(filename):
+
+    if input("Ready to download? (y/n) ") == "n":
+        sys.exit()
 
     r = re.compile(r'(?<=\.)csv') 
     ri = re.compile(r'(?<=\.)json')
 
     ext = ''
-    if (r.search(sys.argv[1])):
-        ext = r.search(sys.argv[1]).group(0)
+    if (r.search(filename)):
+        ext = r.search(filename).group(0)
 
     if (ext == "csv"):
         print("CSV file found.")
-        print(f"The script will now load {sys.argv[1]}.")
-    elif (ri.search(sys.argv[1]).group(0) == 'json'):
+        print(f"The script will now load {filename}.")
+    elif (ri.search(filename).group(0) == 'json'):
         print("JSON file found.")
-        print(f"The script will now load {sys.argv[1]}.")
+        print(f"The script will now load {filename}.")
         ext = "json"
 
     if input("Continue? ... y/n ").lower() != 'y':
@@ -29,20 +32,28 @@ def download():
     _id = []
     indexes = []
 
+    consumer_key = ""
+    consumer_secret = ""
+    access_token = ""
+    access_token_secret = ""
+
 
     try:
         with open("api_keys.json", "r") as f:
-            consumer_key = f["consumer_key"]
-            consumer_secret = f["consumer_secret"]
-            access_token = f["access_token"]
-            access_token_secret = f["access_token_secret"]
 
-    except FileNotFound:
+            data = json.load(f)
+
+            consumer_key = data["consumer_key"]
+            consumer_secret = data["consumer_secret"]
+            access_token = data["access_token"]
+            access_token_secret = data["access_token_secret"]
+
+    except FileNotFoundError:
     
         print("Missing API information. Ensure an api_keys.json is created with the appropriate information.")
         sys.exit()
 
-    with open(sys.argv[1], mode="r", encoding="utf-8") as f:
+    with open(filename, mode="r", encoding="utf-8") as f:
         if ext == "csv":
 
             csv_reader = csv.DictReader(f)
@@ -80,11 +91,11 @@ def download():
                 entities = get_entities(status, t)
                 
                 if "message" in entities:
-                    print("No media found, ignoring...")
+                    print(f"No media found, ignoring {t}...")
                     continue
                 
                 for data_dict in entities:
-                    print("Found!")
+                    print(f"Found: {t}")
                     data_dict['original_row'] = indexes[i]
                     data_dict['tweet_url'] = f'https://twitter.com/statuses/{str(t)}'
                     data.append(data_dict)

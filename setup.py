@@ -1,6 +1,11 @@
-from distutils.core import setup
+import setuptools
+import os
 
-setup(
+this = os.path.abspath(os.path.dirname(__file__))
+repo = "https://github.com/sweeneyngo/birdysis"
+
+setuptools.setup(
+
     # Application name:
     name="birdysis",
 
@@ -12,19 +17,28 @@ setup(
     author_email="sweeneyngo@gmail.com",
 
     # Packages
-    packages=["src"],
+    packages=setuptools.find_packages(),
+
+    classifiers=[
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        ],
+
+    python_requires='>=3.6',
 
     # Include additional files into the package
     include_package_data=True,
 
     # Details
-    url="http://pypi.python.org/pypi/birdysis_v010/",
+    url=repo,
 
-    #
-    # license="LICENSE.txt",
+
+    license="LICENSE",
     description="Retrieves and downloads liked tweets on Twitter.",
 
-    # long_description=open("README.txt").read(),
+    # long_description=Readme,
+    # long_description_content_type="text/markdown",
 
     # Dependent packages (distributions)
     install_requires=[
@@ -33,4 +47,9 @@ setup(
         "cryptography",
 
     ],
+    entry_points={
+        'console_scripts': [
+                'birdysis=src.__main__:main',
+            ],
+        },
 )

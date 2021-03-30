@@ -24,15 +24,6 @@ tag = ""
 
 def scrape(tag):
 
-    if (tag == "-h"):
-        print("\n")
-        print("Scrapes liked tweets on Twitter.")
-        print("python scrape.py <argument>")
-        print("Arguments: ")
-        print(" -h: Prompt help menu.")
-        print(" -f: Use information in account.txt for authentication.")
-        sys.exit()
-
     if (tag == "-f"):
         try:
             with open(account) as f:
