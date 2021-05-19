@@ -1,23 +1,23 @@
-import setuptools
+from setuptools import setup, find_packages
 import os
 
 this = os.path.abspath(os.path.dirname(__file__))
 repo = "https://github.com/sweeneyngo/birdysis"
 
-setuptools.setup(
+setup(
 
     # Application name:
     name="birdysis",
 
     # Version number (initial):
-    version="0.1.0",
+    version="0.1.1",
 
     # Application author details:
     author="Sweeney Ngo",
     author_email="sweeneyngo@gmail.com",
 
     # Packages
-    packages=setuptools.find_packages(),
+    packages=find_packages(include=['birdysis', 'birdysis.*']),
 
     classifiers=[
         'Programming Language :: Python :: 3',

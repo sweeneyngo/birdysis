@@ -1,0 +1,3 @@
+1621403052444	geckodriver	INFO	Listening on 127.0.0.1:53359
+1621403052448	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilemr5A9T"
+Running Firefox as root in a regular user's session is not supported.  ($XDG_RUNTIME_DIR is /run/user/1000 which is owned by sumi.)
