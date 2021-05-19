@@ -1,5 +1,7 @@
 ## birdysis
 
+ [![Python versions](https://img.shields.io/pypi/pyversions/birdysis.svg)](https://pypi.python.org/pypi/birdysis/) [![PyPI](https://img.shields.io/pypi/v/birdysis.svg)](https://pypi.python.org/pypi/birdysis/)
+ 
 birdysis is a small library that compiles and downloads a specified amount of Twitter liked post(s).
 
 ## Purpose
