@@ -66,9 +66,10 @@ download('all_ids.json')
 ```
 
 ## Goals
-[] Add more flags for default size, timeout, webDriver type, and media directory.
-[] Implement browser support for Google Chrome, Safari, and Opera.
-[] Conduct tests in different machines (verified in Ubuntu 20.04, Arch Linux 5.11.16).
+
+- Add more flags for default size, timeout, webDriver type, and media directory.
+- Implement browser support for Google Chrome, Safari, and Opera.
+- Conduct tests in different machines (verified in Ubuntu 20.04, Arch Linux 5.11.16).
 
 
 ## Contributing
