@@ -1,6 +1,10 @@
-## birdysis
+<p align="left"><img height="140" width="140" src=https://user-images.githubusercontent.com/44306479/118784948-3ff1d680-b845-11eb-9a94-0341c62a37bb.png>
+</p>
 
- [![Python versions](https://img.shields.io/pypi/pyversions/birdysis.svg)](https://pypi.python.org/pypi/birdysis/) [![PyPI](https://img.shields.io/pypi/v/birdysis.svg)](https://pypi.python.org/pypi/birdysis/) [![Code style: flake8](https://img.shields.io/badge/code%20style-flake8-black)](https://github.com/PyCQA/flake8)
+## birdysis
+bird + ecdysis = shedding twitter's feathers.
+
+ [![Python versions](https://img.shields.io/pypi/pyversions/birdysis.svg)](https://pypi.python.org/pypi/birdysis/) [![PyPI](https://img.shields.io/pypi/v/birdysis.svg)](https://pypi.python.org/pypi/birdysis/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Code style: flake8](https://img.shields.io/badge/code%20style-flake8-black)](https://github.com/PyCQA/flake8)
  
 birdysis is a small library that compiles and downloads a specified amount of Twitter liked post(s).
 
