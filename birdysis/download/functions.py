@@ -7,7 +7,8 @@ from requests.packages.urllib3.util.retry import Retry
 
 
 def get_video_url(entity, _id, medium):
-    data_dict = {'tweet_id': _id, 'media_url': '', 'bitrate': -1, 'type': '', 'medium': medium}
+    data_dict = {'tweet_id': _id, 'media_url': '', 'bitrate': -1,
+                 'type': '', 'medium': medium}
 
     for variant in entity['video_info']['variants']:
         if 'bitrate' in variant:
@@ -19,7 +20,8 @@ def get_video_url(entity, _id, medium):
 
 
 def get_photo_url(entity, _id, medium):
-    data_dict = {'tweet_id': _id, 'media_url': '', 'type': '', 'medium': medium}
+    data_dict = {'tweet_id': _id, 'media_url': '',
+                 'type': '', 'medium': medium}
     data_dict['media_url'] = entity['media_url']
     data_dict['type'] = entity['media_url'][-3:]
     return data_dict
@@ -47,11 +49,13 @@ def get_entities(data, _id):
     else:
         return {'message': 'No Media Found', 'tweet_id': _id}
 
+
 def item_retrieve(data_dict):
     try:
-        media_dir = os.path.join('media',data_dict['medium'])
+        media_dir = os.path.join('media', data_dict['medium'])
         while True:
-            name = os.path.join(media_dir,'{}.{}'.format(data_dict['tweet_id'], data_dict['type'][-3:]))
+            name = os.path.join(media_dir, '{}.{}'.format(
+                data_dict['tweet_id'], data_dict['type'][-3:]))
             break
         r = requests_retry_session().get(data_dict['media_url'], stream=True)
         with open(name, 'wb') as f:
@@ -62,6 +66,7 @@ def item_retrieve(data_dict):
         return
     return
 
+
 def if_no_dir_make(path):
     import os
     try:
@@ -70,7 +75,8 @@ def if_no_dir_make(path):
         if not os.path.isdir(path):
             raise
     finally:
-    	return path
+        return path
+
 
 def requests_retry_session(
     retries=3,
@@ -90,6 +96,7 @@ def requests_retry_session(
     session.mount('http://', adapter)
     session.mount('https://', adapter)
     return session
+
 
 if __name__ == '__main__':
     pass

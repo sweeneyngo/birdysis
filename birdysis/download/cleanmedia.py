@@ -1,4 +1,4 @@
-from os import listdir, remove, rename
+from os import listdir, remove
 from os.path import isfile, join
 import re
 from sys import exit
@@ -8,6 +8,7 @@ r = re.compile(r'^(.*?)_')
 photo_path = "media/photo"
 video_path = "media/video"
 gif_path = "media/animated_gif"
+
 
 def clean_dir(dirpath):
 
@@ -26,7 +27,7 @@ def clean_dir(dirpath):
             index = i.split('_')[0]
             filename = filename.replace(match.group(0), '')
             scrub.append({'id': index, 'name': filename})
-        
+
     if (len(scrub) == len(files)):
         print('All files were scrubbed!')
 
@@ -69,7 +70,6 @@ def clean_dir(dirpath):
             remove(path)
             print(f'{i} removed.')
             c += 1
-            
 
     print(f'All files found? {c == len(dups)}')
 
@@ -80,7 +80,7 @@ def clean_dir(dirpath):
 def rename_files(dirpath):
 
     files = [f for f in listdir(dirpath) if isfile(join(dirpath, f))]
-    fsize = len(files)
+    # fsize = len(files)
 
     print('Cleaning out the IDs...')
 
@@ -94,25 +94,28 @@ def rename_files(dirpath):
         if (match):
             index = i.split('_')[0]
             filename = filename.replace(match.group(0), '')
-            
+
             # old_path = join(dirpath + '/', i)
             # new_path = join(dirpath + '/', filename)
             # rename(old_path, new_path)
             scrub.append({'id': index, 'name': filename})
-        
+
     if (len(scrub) == len(files)):
         print('All files were scrubbed!')
     elif (len(scrub) == 0):
         print('All files are already clean! Exiting...')
         return
-    elif (len(scrub) <= len(files)):        
+    elif (len(scrub) <= len(files)):
         print('Some files were scrubbed, others are already clean!')
 
     print('Scrubbing complete.')
 
+
 while 1:
-    
-    choice = input('Which directory do you want to delete? [1]: photo, [2]: video, [3]: gif ')
+
+    choice = input(
+        'Which directory do you want to delete? \
+        [1]: photo, [2]: video, [3]: gif ')
 
     if choice == '1':
         clean_dir(photo_path)
@@ -133,4 +136,3 @@ while 1:
         print('Wrong value, try again.')
 
 exit()
-        
