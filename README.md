@@ -30,7 +30,7 @@ export PATH=$PATH:/usr/bin
 ```
 
 ## Preparation
-birdysis uses [tweepy] (https://docs.tweepy.org/en/latest/) to readily download files from Twitter's API by feeding in your liked IDs. In order to access the API,
+birdysis uses [tweepy](https://docs.tweepy.org/en/latest/) to readily download files from Twitter's API by feeding in your liked IDs. In order to access the API,
 some credentials are required. 
 
 1. Head over to [Twitter's Developer Portal](https://developer.twitter.com/en), and sign in to your account.
