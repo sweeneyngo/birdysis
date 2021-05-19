@@ -10,7 +10,7 @@ setup(
     name="birdysis",
 
     # Version number (initial):
-    version="0.1.1",
+    version="0.1.3",
 
     # Application author details:
     author="Sweeney Ngo",
