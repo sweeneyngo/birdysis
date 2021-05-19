@@ -2,6 +2,7 @@ import sys
 import re
 import csv
 import json
+import os
 from tweepy import OAuthHandler, API, Cursor, TweepError
 from .functions import get_entities, item_retrieve
 
@@ -107,7 +108,15 @@ def download(filename):
         print(f'Retrieved meta-data for {num_media} media items...')
 
         print("Retrieving media items...")
-       
+      
+        dl = os.getcwd() + '/media'
+        print('Checking for: ' + dl)
+        if not os.path.isdir(dl):
+            os.mkdir(dl)
+            os.mkdir(f'{dl}/photo')
+            os.mkdir(f'{dl}/video')
+            os.mkdir(f'{dl}/animated_gif')
+        
         for row in data:
             if 'medium' in row:
                 print(f"Downloading {row} ...")

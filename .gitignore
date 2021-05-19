@@ -1,4 +1,12 @@
-**/birdysis/download/media/
-**/src/userinfo.json
-**/src/all_ids.json
-**/src/api_keys.json
+/birdysis/download/media/
+/birdysis/download/__pycache__/
+/birdysis/collect_data/__pycache__/
+/birdysis/collect_data/userinfo.json
+/birdysis/collect_data/all_ids.json
+/birdysis/download/api_keys.json
+/tests/media
+/tests/all_ids.json
+/tests/api_keys.json
+/tests/all_ids.json
+/tests/geckodriver.log
+

@@ -39,7 +39,7 @@ def scrape(tag):
                 user = account_rec["user"]
                 login = account_rec["login"]
                 password = account_rec["pass"]
-                password = password[2:-1].encode()
+                password = password.encode()
 
                 cipher_suite = Fernet(account_rec["key"].encode())
 
@@ -245,12 +245,11 @@ def scrape(tag):
     except FileNotFoundError:
         with open(twitter_ids_filename, 'w') as f:
             
-            data = json.load(f)
-            data_to_write = data
+            # data = json.load(f)
+            data_to_write = []
 
             for i in ids:
-                if i not in data:
-                    data_to_write.append(i)
+                data_to_write.append(i)
 
             print('Number of IDs: ', len(ids))
             print('Total Count: ', len(data_to_write))

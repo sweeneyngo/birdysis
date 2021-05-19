@@ -50,13 +50,8 @@ def get_entities(data, _id):
 def item_retrieve(data_dict):
     try:
         media_dir = os.path.join('media',data_dict['medium'])
-        # increment = 0
         while True:
             name = os.path.join(media_dir,'{}.{}'.format(data_dict['tweet_id'], data_dict['type'][-3:]))
-            # if os.path.exists(name):
-                # increment += 1
-            # else:
-                # break
             break
         r = requests_retry_session().get(data_dict['media_url'], stream=True)
         with open(name, 'wb') as f:

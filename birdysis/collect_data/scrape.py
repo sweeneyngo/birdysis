@@ -39,7 +39,7 @@ def scrape(tag):
                 user = account_rec["user"]
                 login = account_rec["login"]
                 password = account_rec["pass"]
-                password = password[2:-1].encode()
+                password = password.encode()
 
                 cipher_suite = Fernet(account_rec["key"].encode())
 
@@ -246,7 +246,7 @@ def scrape(tag):
         with open(twitter_ids_filename, 'w') as f:
             
             # data = json.load(f)
-            # data_to_write = data
+            data_to_write = []
 
             for i in ids:
                 data_to_write.append(i)
