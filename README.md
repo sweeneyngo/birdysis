@@ -8,7 +8,7 @@ birdysis is a small library that compiles and downloads a specified amount of Tw
 <sub>bird + ecdysis = shedding twitter's feathers.</sub>
 <sub>thank you @wieneko138226</sub>
 
-<img align="right" height="140" width="140" src=https://user-images.githubusercontent.com/44306479/118784948-3ff1d680-b845-11eb-9a94-0341c62a37bb.png>
+<img align="right" height="180" width="180" src=https://user-images.githubusercontent.com/44306479/118784948-3ff1d680-b845-11eb-9a94-0341c62a37bb.png>
 
 Twitter lacked the functionality of readily seeing through your liked post(s), which was my modus operandi for saving pictures/videos from artists/creators I've greatly enjoyed. And frustratingly, [Twitter's Developer API](https://developer.twitter.com/en/products/twitter-api) can only grab/download a set amount of posts (max caps at [3200](https://stackoverflow.com/questions/64015641/how-to-get-3200-tweets-from-a-new-twitters-api-and-what-is-getoldtweets3-altern)).
 With the additional bottleneck of its rate limiting, and the bizarre behavior of missing/dead posts throughout my Liked feed, I decided it was time to finally optimize archiving Twitter posts to a more accessible storage.
